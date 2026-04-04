@@ -46,6 +46,15 @@ export class Zite {
             )
         },
 
+        bulkCreate: (databaseId: string, tableId: string, records: any[], matchOn?: string[]) => {
+            return this.request<Record>(
+                "POST",
+                `/bases/${encodeURIComponent(databaseId)}/tables/${encodeURIComponent(tableId)}/records/bulk`,
+                "bulk create Zite records",
+                { records, matchOn }
+            )
+        },
+
         get: (databaseId: string, tableId: string, recordId: string) => {
             return this.request<Request>(
                 "GET",
@@ -60,6 +69,15 @@ export class Zite {
                 `/bases/${encodeURIComponent(databaseId)}/tables/${encodeURIComponent(tableId)}/records/${encodeURIComponent(recordId)}`,
                 "update Zite record",
                 { record }
+            )
+        },
+
+        bulkUpdate: (databaseId: string, tableId: string, records: { recordId: string; [key: string]: any }[]) => {
+            return this.request<Record>(
+                "PUT",
+                `/bases/${encodeURIComponent(databaseId)}/tables/${encodeURIComponent(tableId)}/records/bulk`,
+                "bulk update Zite records",
+                { records }
             )
         },
 

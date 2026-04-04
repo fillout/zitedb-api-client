@@ -1,4 +1,4 @@
-export type Method = 'GET' | 'POST' | 'PATCH' | 'DELETE'
+export type Method = 'GET' | 'POST' | 'PATCH' | 'PUT' | 'DELETE'
 
 export type Record = {
   id: string,
